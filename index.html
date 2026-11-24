@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repuestos y Herramientas Agrícolas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Repuestos y Herramientas Agrícolas</h1>
+    <button type="button" class="btn-cart-top" aria-label="Ver carrito de compras">
+      Carrito (0)
+    </button>
+  </header>
+
+  <nav class="main-nav" aria-label="Búsqueda y categorías">
+    <form class="search-form" role="search">
+      <label for="search-input" class="visually-hidden">Buscar repuesto o código</label>
+      <input type="text" id="search-input" name="q" placeholder="Buscar repuesto o código (Ej. JD-99234)">
+      <button type="submit" class="btn-primary">Buscar</button>
+    </form>
+
+    <div class="category-filters">
+      <button type="button" class="btn-filter">Marcas</button>
+      <button type="button" class="btn-filter">Herramientas</button>
+      <button type="button" class="btn-filter">Garantías</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="productos" aria-labelledby="catalog-heading">
+      <h2 id="catalog-heading">Catálogo de Repuestos y Herramientas</h2>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="https://via.placeholder.com/300x180?text=Filtro+John+Deere" alt="Filtro de combustible para tractor John Deere modelo JD-99234">
+          <h3>Filtro de combustible John Deere</h3>
+          <p class="code">Código: JD-99234</p>
+          <p class="price">$45.00</p>
+          <p class="stock">Stock: Disponible (Entrega 24-48h)</p>
+          <button type="button" class="btn-primary btn-full" aria-label="Agregar Filtro de combustible John Deere al carrito">
+            Agregar al carrito
+          </button>
+        </article>
+
+        <article class="product-card">
+          <img src="https://via.placeholder.com/300x180?text=Correa+New+Holland" alt="Correa de transmisión reforzada para maquinaria New Holland modelo NH-4410">
+          <h3>Correa de transmisión New Holland</h3>
+          <p class="code">Código: NH-4410</p>
+          <p class="price">$32.50</p>
+          <p class="stock">Stock: Disponible (Entrega 24-48h)</p>
+          <button type="button" class="btn-primary btn-full" aria-label="Agregar Correa de transmisión New Holland al carrito">
+            Agregar al carrito
+          </button>
+        </article>
+
+        <article class="product-card">
+          <img src="https://via.placeholder.com/300x180?text=Kit+Lubricacion" alt="Pistola engrasadora manual de alta presión para taller agrícola">
+          <h3>Engrasadora Manual de Taller</h3>
+          <p class="code">Código: HT-108</p>
+          <p class="price">$28.00</p>
+          <p class="stock">Stock: Disponible</p>
+          <button type="button" class="btn-primary btn-full" aria-label="Agregar Engrasadora Manual de Taller al carrito">
+            Agregar al carrito
+          </button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <button type="button" class="btn-floating" aria-label="Contactar directamente con un vendedor">
+    Hablar con un Vendedor
+  </button>
+
+  <footer class="site-footer">
+    <p><strong>Matriz:</strong> Av. Maldonado y Quimiag, Sur de Quito</p>
+    <p><strong>Horario:</strong> Lunes a Sábado de 08:00 a 18:00 | <strong>Garantía:</strong> 6 meses en repuestos</p>
+  </footer>
+
+</body>
+</html>
