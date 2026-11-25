@@ -3,81 +3,327 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Repuestos y Herramientas Agrícolas</title>
+  <title>AgroRepuestos - Repuestos y Herramientas Agrícolas</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header class="site-header">
-    <h1>Repuestos y Herramientas Agrícolas</h1>
-    <button type="button" class="btn-cart-top" aria-label="Ver carrito de compras">
-      Carrito (0)
+    <h1>AgroRepuestos</h1>
+    <button type="button" id="btn-open-cart" class="btn-cart-top" aria-label="Abrir carrito de compras">
+      Carrito (<span id="cart-count">0</span>)
     </button>
   </header>
 
-  <nav class="main-nav" aria-label="Búsqueda y categorías">
-    <form class="search-form" role="search">
+  <nav class="main-nav" aria-label="Búsqueda y categorías de repuestos">
+    <form id="search-form" class="search-form" role="search">
       <label for="search-input" class="visually-hidden">Buscar repuesto o código</label>
-      <input type="text" id="search-input" name="q" placeholder="Buscar repuesto o código (Ej. JD-99234)">
+      <input type="text" id="search-input" name="q" placeholder="Buscar por nombre, marca o código (Ej. JD-99234)">
       <button type="submit" class="btn-primary">Buscar</button>
     </form>
 
-    <div class="category-filters">
-      <button type="button" class="btn-filter">Marcas</button>
-      <button type="button" class="btn-filter">Herramientas</button>
-      <button type="button" class="btn-filter">Garantías</button>
+    <div class="category-filters" role="group" aria-label="Filtrar por categoría">
+      <button type="button" class="btn-filter active" data-category="todos">Todos</button>
+      <button type="button" class="btn-filter" data-category="filtros">Filtros y Motor</button>
+      <button type="button" class="btn-filter" data-category="transmision">Transmisión</button>
+      <button type="button" class="btn-filter" data-category="herramientas">Herramientas</button>
+      <button type="button" id="btn-garantias" class="btn-filter">Garantías</button>
     </div>
   </nav>
 
   <main>
     <section id="productos" aria-labelledby="catalog-heading">
-      <h2 id="catalog-heading">Catálogo de Repuestos y Herramientas</h2>
+      <div class="catalog-header">
+        <h2 id="catalog-heading">Catálogo de Repuestos y Herramientas</h2>
+        <p id="filter-status" class="filter-status" aria-live="polite">Mostrando todos los productos (6)</p>
+      </div>
 
-      <div class="product-grid">
-        <article class="product-card">
-          <img src="https://via.placeholder.com/300x180?text=Filtro+John+Deere" alt="Filtro de combustible para tractor John Deere modelo JD-99234">
+      <div id="product-grid" class="product-grid">
+        <!-- Categoría: Filtros y Motor -->
+        <article class="product-card" data-category="filtros" data-name="Filtro de combustible John Deere" data-code="JD-99234" data-price="45.00">
+          <img src="https://placehold.co/300x180/e2e8f0/1e293b?text=Filtro+Combustible+JD" alt="Filtro de combustible para tractor John Deere código JD-99234">
+          <span class="badge">Filtros y Motor</span>
           <h3>Filtro de combustible John Deere</h3>
           <p class="code">Código: JD-99234</p>
           <p class="price">$45.00</p>
           <p class="stock">Stock: Disponible (Entrega 24-48h)</p>
-          <button type="button" class="btn-primary btn-full" aria-label="Agregar Filtro de combustible John Deere al carrito">
+          <button type="button" class="btn-primary btn-full btn-add-cart" aria-label="Agregar Filtro de combustible John Deere al carrito">
             Agregar al carrito
           </button>
         </article>
 
-        <article class="product-card">
-          <img src="https://via.placeholder.com/300x180?text=Correa+New+Holland" alt="Correa de transmisión reforzada para maquinaria New Holland modelo NH-4410">
+        <article class="product-card" data-category="filtros" data-name="Filtro de aire primario John Deere" data-code="JD-59410" data-price="20.00">
+          <img src="https://placehold.co/300x180/e2e8f0/1e293b?text=Filtro+Aire+JD" alt="Filtro de aire primario para tractor John Deere código JD-59410">
+          <span class="badge">Filtros y Motor</span>
+          <h3>Filtro de aire primario John Deere</h3>
+          <p class="code">Código: JD-59410</p>
+          <p class="price">$20.00</p>
+          <p class="stock">Stock: Disponible (Entrega 24-48h)</p>
+          <button type="button" class="btn-primary btn-full btn-add-cart" aria-label="Agregar Filtro de aire primario John Deere al carrito">
+            Agregar al carrito
+          </button>
+        </article>
+
+        <!-- Categoría: Transmisión -->
+        <article class="product-card" data-category="transmision" data-name="Correa de transmisión New Holland" data-code="NH-4410" data-price="32.50">
+          <img src="https://placehold.co/300x180/e2e8f0/1e293b?text=Correa+New+Holland" alt="Correa de transmisión reforzada para maquinaria New Holland código NH-4410">
+          <span class="badge">Transmisión</span>
           <h3>Correa de transmisión New Holland</h3>
           <p class="code">Código: NH-4410</p>
           <p class="price">$32.50</p>
           <p class="stock">Stock: Disponible (Entrega 24-48h)</p>
-          <button type="button" class="btn-primary btn-full" aria-label="Agregar Correa de transmisión New Holland al carrito">
+          <button type="button" class="btn-primary btn-full btn-add-cart" aria-label="Agregar Correa de transmisión New Holland al carrito">
             Agregar al carrito
           </button>
         </article>
 
-        <article class="product-card">
-          <img src="https://via.placeholder.com/300x180?text=Kit+Lubricacion" alt="Pistola engrasadora manual de alta presión para taller agrícola">
+        <article class="product-card" data-category="transmision" data-name="Rodamiento cónico Massey Ferguson" data-code="MF-8820" data-price="38.00">
+          <img src="https://placehold.co/300x180/e2e8f0/1e293b?text=Rodamiento+MF" alt="Rodamiento cónico de eje para tractor Massey Ferguson código MF-8820">
+          <span class="badge">Transmisión</span>
+          <h3>Rodamiento cónico Massey Ferguson</h3>
+          <p class="code">Código: MF-8820</p>
+          <p class="price">$38.00</p>
+          <p class="stock">Stock: Disponible (Entrega 24-48h)</p>
+          <button type="button" class="btn-primary btn-full btn-add-cart" aria-label="Agregar Rodamiento cónico Massey Ferguson al carrito">
+            Agregar al carrito
+          </button>
+        </article>
+
+        <!-- Categoría: Herramientas -->
+        <article class="product-card" data-category="herramientas" data-name="Engrasadora Manual de Taller" data-code="HT-108" data-price="28.00">
+          <img src="https://placehold.co/300x180/e2e8f0/1e293b?text=Engrasadora+Manual" alt="Pistola engrasadora manual de alta presión para taller agrícola código HT-108">
+          <span class="badge">Herramientas</span>
           <h3>Engrasadora Manual de Taller</h3>
           <p class="code">Código: HT-108</p>
           <p class="price">$28.00</p>
           <p class="stock">Stock: Disponible</p>
-          <button type="button" class="btn-primary btn-full" aria-label="Agregar Engrasadora Manual de Taller al carrito">
+          <button type="button" class="btn-primary btn-full btn-add-cart" aria-label="Agregar Engrasadora Manual de Taller al carrito">
+            Agregar al carrito
+          </button>
+        </article>
+
+        <article class="product-card" data-category="herramientas" data-name="Juego de Llaves Mixtas Agrícolas" data-code="HT-215" data-price="54.00">
+          <img src="https://placehold.co/300x180/e2e8f0/1e293b?text=Juego+Llaves+Taller" alt="Juego de llaves mixtas de acero reforzado para mecánica agrícola código HT-215">
+          <span class="badge">Herramientas</span>
+          <h3>Juego de Llaves Mixtas Agrícolas</h3>
+          <p class="code">Código: HT-215</p>
+          <p class="price">$54.00</p>
+          <p class="stock">Stock: Disponible</p>
+          <button type="button" class="btn-primary btn-full btn-add-cart" aria-label="Agregar Juego de Llaves Mixtas Agrícolas al carrito">
             Agregar al carrito
           </button>
         </article>
       </div>
+
+      <p id="no-results" class="no-results hidden">No se encontraron repuestos con ese criterio. Prueba con otro código o categoría.</p>
     </section>
   </main>
 
-  <button type="button" class="btn-floating" aria-label="Contactar directamente con un vendedor">
+  <!-- Botón flotante contacto directo -->
+  <button type="button" id="btn-open-seller" class="btn-floating" aria-label="Contactar directamente con un vendedor">
     Hablar con un Vendedor
   </button>
+
+  <!-- Modal Carrito de Compras -->
+  <div id="cart-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cart-modal-title">Tu Carrito de Compras</h2>
+        <button type="button" class="btn-close-modal" data-close="cart-modal" aria-label="Cerrar carrito">Cerrar</button>
+      </div>
+      <div id="cart-items-container" class="modal-body">
+        <p>El carrito está vacío.</p>
+      </div>
+      <div class="modal-footer">
+        <p class="cart-total">Total a pagar: <strong id="cart-total-price">$0.00</strong></p>
+        <button type="button" id="btn-checkout" class="btn-primary btn-full">Confirmar Pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Garantías y Entregas -->
+  <div id="warranty-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="warranty-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="warranty-modal-title">Política de Garantías y Entregas</h2>
+        <button type="button" class="btn-close-modal" data-close="warranty-modal" aria-label="Cerrar ventana de garantías">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Garantía directa:</strong> Todos los repuestos de motor, filtros y transmisión cuentan con 6 meses de garantía contra defectos de fábrica.</p>
+        <p><strong>Tiempos de entrega:</strong> Envíos en 24 a 48 horas a todo el país o retiro inmediato en nuestra matriz en Quito.</p>
+        <p><strong>Cambios sin complicaciones:</strong> Presentando tu código de producto y comprobante dentro de los primeros 15 días.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Contacto Directo Vendedor -->
+  <div id="seller-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="seller-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="seller-modal-title">Atención Directa con Asesor Técnico</h2>
+        <button type="button" class="btn-close-modal" data-close="seller-modal" aria-label="Cerrar ventana de contacto">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <p>Sin bots ni respuestas automáticas. Comunícate directamente con nuestro mostrador de repuestos:</p>
+        <p><strong>Teléfono / WhatsApp:</strong> +593 99 000 0000</p>
+        <p><strong>Matriz:</strong> Av. Maldonado y Quimiag, Sur de Quito</p>
+        <p><strong>Horario:</strong> Lunes a Sábado de 08:00 a 18:00</p>
+        <a href="https://wa.me/593990000000?text=Hola,%20necesito%20consultar%20un%20repuesto%20agr%C3%ADcola" target="_blank" rel="noopener noreferrer" class="btn-primary btn-full btn-link">
+          Abrir chat en WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <p><strong>Matriz:</strong> Av. Maldonado y Quimiag, Sur de Quito</p>
     <p><strong>Horario:</strong> Lunes a Sábado de 08:00 a 18:00 | <strong>Garantía:</strong> 6 meses en repuestos</p>
   </footer>
 
+  <script>
+    const cards = Array.from(document.querySelectorAll('.product-card'));
+    const filterButtons = document.querySelectorAll('.btn-filter[data-category]');
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const filterStatus = document.getElementById('filter-status');
+    const noResults = document.getElementById('no-results');
+
+    let activeCategory = 'todos';
+    let cart = [];
+
+    // 1. Filtrado por Categoría y Búsqueda
+    function applyFilters() {
+      const term = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cat = card.dataset.category;
+        const name = card.dataset.name.toLowerCase();
+        const code = card.dataset.code.toLowerCase();
+
+        const matchesCategory = activeCategory === 'todos' || cat === activeCategory;
+        const matchesSearch = !term || name.includes(term) || code.includes(term);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      filterStatus.textContent = `Mostrando ${visibleCount} producto(s) en categoría: ${activeCategory.toUpperCase()}`;
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.category;
+        applyFilters();
+      });
+    });
+
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      applyFilters();
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+
+    // 2. Carrito de Compras Funcional
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      const countEl = document.getElementById('cart-count');
+      const totalEl = document.getElementById('cart-total-price');
+
+      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+      const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+      countEl.textContent = totalItems;
+      totalEl.textContent = `$${totalPrice.toFixed(2)}`;
+
+      if (cart.length === 0) {
+        container.innerHTML = '<p>El carrito está vacío. Agrega repuestos desde el catálogo.</p>';
+        return;
+      }
+
+      container.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <div>
+            <strong>${item.name}</strong><br>
+            <small>Código: ${item.code} | $${item.price.toFixed(2)} c/u</small>
+          </div>
+          <div class="qty-controls">
+            <button type="button" class="btn-qty" onclick="updateQty(${index}, -1)" aria-label="Restar una unidad de ${item.name}">-</button>
+            <span>${item.qty}</span>
+            <button type="button" class="btn-qty" onclick="updateQty(${index}, 1)" aria-label="Sumar una unidad de ${item.name}">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.updateQty = function(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      renderCart();
+    };
+
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.product-card');
+        const code = card.dataset.code;
+        const name = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+
+        const existing = cart.find(item => item.code === code);
+        if (existing) {
+          existing.qty++;
+        } else {
+          cart.push({ code, name, price, qty: 1 });
+        }
+
+        renderCart();
+        const originalText = btn.textContent;
+        btn.textContent = '¡Agregado!';
+        setTimeout(() => { btn.textContent = originalText; }, 900);
+      });
+    });
+
+    document.getElementById('btn-checkout').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Agrega al menos un repuesto antes de confirmar el pedido.');
+        return;
+      }
+      alert('¡Pedido registrado con éxito! Un asesor técnico confirmará tu entrega.');
+      cart = [];
+      renderCart();
+      closeAllModals();
+    });
+
+    // 3. Modales Accesibles (Soporte para tecla Escape)
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeAllModals() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+    }
+
+    document.getElementById('btn-open-cart').addEventListener('click', () => openModal('cart-modal'));
+    document.getElementById('btn-garantias').addEventListener('click', () => openModal('warranty-modal'));
+    document.getElementById('btn-open-seller').addEventListener('click', () => openModal('seller-modal'));
+
+    document.querySelectorAll('.btn-close-modal').forEach(btn => {
+      btn.addEventListener('click', closeAllModals);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAllModals();
+    });
+  </script>
 </body>
 </html>
